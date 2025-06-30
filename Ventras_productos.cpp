@@ -146,3 +146,42 @@ void totalVentas() {
     }
     cout << "Total de ventas realizadas: s/" << total << endl;
 }
+
+void mostrarMenu() {
+    cout << "\n=== INVENTARIO DE PRODUCTOS Y VENTAS ===\n";
+    cout << "A. Registrar nuevo producto\n";
+    cout << "B. Listar productos\n";
+    cout << "C. Buscar producto\n";
+    cout << "D. Actualizar producto\n";
+    cout << "E. Eliminar producto\n";
+    cout << "F. Registrar venta\n";
+    cout << "G. Listar ventas\n";
+    cout << "H. Total de ventas\n";
+    cout << "S. Salir\n";
+    cout << "Seleccione una opcion: ";
+}
+
+int main() {
+    char opcion;
+    do {
+        mostrarMenu();
+        cin >> opcion;
+        opcion = toupper(opcion);
+
+        switch (opcion) {
+            case 'A': registrarProducto(); break;
+            case 'B': listarProductos(); break;
+            case 'C': buscarProducto(); break;
+            case 'D': actualizarProducto(); break;
+            case 'E': eliminarProducto(); break;
+            case 'F': registrarVenta(); break;
+            case 'G': listarVentas(); break;
+            case 'H': totalVentas(); break;
+            case 'S': cout << "Saliendo del programa...\n"; break;
+            default: cout << "Opcion invalida.\n"; break;
+        }
+
+    } while (opcion != 'S');
+
+    return 0;
+}
